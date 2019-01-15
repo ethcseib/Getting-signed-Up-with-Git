@@ -10,29 +10,37 @@ namespace git_project
     {
         static void Main(string[] args)
         {
+            int x, y;
+            bool val = true;
             int count = 1;
             Random rand = new Random();
 
-            Console.WriteLine("I am thinking of a number between 0- 100");
+            Console.WriteLine("Pick two numbers one starting number and one ending number");
 
-            int CorrectAnswer = rand.Next()%100;
+            string convert = Console.ReadLine();
+            x = Convert.ToInt32(convert);
 
-            bool val = true;
+            convert = Console.ReadLine();
+            y = Convert.ToInt32(convert);
+
+            Console.WriteLine("I am thinking of a number between " + Convert.ToString(x) + " and " + Convert.ToString(y));
             
+            
+            int CorrectAnswer = rand.Next(x, y);
 
             while (val) {
 
                 string UserAnswer = Console.ReadLine();
 
-                int x = Convert.ToInt32(UserAnswer);
+                int integer = Convert.ToInt32(UserAnswer);
  
-                if (x > CorrectAnswer)
+                if (integer > CorrectAnswer)
                 {
                     Console.WriteLine("Answer was too high\n");
                     count++;
                 }
 
-                else if (x < CorrectAnswer)
+                else if (integer < CorrectAnswer)
                 {
                     Console.WriteLine("Answer was too low\n");
                     count++;
